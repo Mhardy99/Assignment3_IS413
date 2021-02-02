@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Movie Website</title>
+    <link rel="stylesheet" type="image/x-icon" href="~/favicon.ico" />
+    
+</head>
+
+<body>
+    <header>
+        <menu>
+            <ul list-style: none;>
+                <li list-style: none;>
+                    <a asp-action="MyPodcasts">My Podcasts</a>
+                    <a asp-action="MovieList">My List of Movies</a>
+                    <a asp-action="EnterMovie">Enter a Movie</a>
+                    <a asp-action="Index">Home</a>
+                </li>
+            </ul>
+        </menu>
+    </header>
+    <h1>@ViewBag.title</h1>
+
+    @RenderBody()
+
+    <br />
+    <footer>This is a footer</footer>
+
+</body>
+
+</html>
