@@ -11,11 +11,18 @@ namespace Assignment3_IS413.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+       // private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+      //  private IMovieRepository _repository;
+
+        private MovieDbContext context { get; set; }
+
+        public HomeController(MovieDbContext con)
         {
-            _logger = logger;
+            // in controllerILogger<HomeController> logger , IMovieRepository repository
+            //_logger = logger;
+            // _repository = repository;
+            context = con;
         }
 
         public IActionResult Index()
@@ -30,26 +37,49 @@ namespace Assignment3_IS413.Controllers
 
         public IActionResult MovieList()
         {
-            return View(TempStorage.Listmovies);
+          //  return View(TempStorage.Listmovies);
+            return View(context.movieResponses);
         }
         [HttpGet]
         public IActionResult EnterMovie()
         {
             return View();
         }
-
+        [HttpPost]
+        public IActionResult Remove(int RemoveIt)
+        {
+            MovieResponse movietodelete = context.movieResponses.Single(x => x.MovieID == RemoveIt);
+            context.movieResponses.Remove(movietodelete);
+            context.SaveChanges();
+            return RedirectToAction("MovieList");
+        }
 
         [HttpPost]
         public IActionResult EnterMovie(MovieResponse movie)
         {
             if (ModelState.IsValid)
             {
-                TempStorage.AddMovie(movie);
+                context.movieResponses.Add(movie);
+                context.SaveChanges();
                 Response.Redirect("MovieList"); ; // , movie
             }
 
             return View();
         }
+        [HttpPost]
+        public IActionResult EditMovieInfo(int EditIt)
+        {
+            if (ModelState.IsValid)
+            {
+                MovieResponse movietoedit = context.movieResponses.FirstOrDefault(x => x.MovieID == EditIt);
+                context.movieResponses.Add(movietoedit);
+                context.SaveChanges();
+                Response.Redirect("MovieList"); ; // , movie
+            }
+
+            return View();
+        }
+    
         public IActionResult Privacy()
         {
             return View();

@@ -5,18 +5,18 @@
     ViewBag.title = "List of Movies";
 }
 
-@model IEnumerable<Assignment3_IS413.Models.MovieResponse>
+@model IQueryable<MovieResponse>;
 
 
 <div>
     <h2>List of Submitted Movies</h2>
     <table>
         <thead>
-            <tr><th>Category</th><th>Title</th><th>Year</th><th>Director</th><th>Rating</th><th>Edited</th><th>Lent to</th><th>Notes</th></tr>
+            <tr><th>Category</th><th>Title</th><th>Year</th><th>Director</th><th>Rating</th><th>Edited</th><th>Lent to</th><th>Notes</th><th>Edit</th><th>Delete</th></tr>
         </thead>
 
         <tbody>
-            @foreach (Assignment3_IS413.Models.MovieResponse x in Model)
+            @foreach (var x in Model)
             {
                 @if (x.Title != "Independence Day")
                 {
@@ -29,6 +29,8 @@
                 <td>@x.IsEdited</td>
                 <td>@x.IsLentTo</td>
                 <td>@x.Notes</td>
+                <form method="post" asp-action="EditMovieInfo"> <input hidden value="@x.MovieID" name="EditIt" /> <td><button>Edit</button></td></form>
+                <form method="post" asp-action="Remove"> <input hidden value="@x.MovieID" name="RemoveIt" /> <td><button>Delete</button></td></form>
             </tr>
                 }
             }
