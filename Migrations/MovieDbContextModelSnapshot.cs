@@ -13,7 +13,7 @@ namespace Assignment3_IS413.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.4");
+                .HasAnnotation("ProductVersion", "3.1.13");
 
             modelBuilder.Entity("Assignment3_IS413.Models.MovieResponse", b =>
                 {
@@ -40,8 +40,8 @@ namespace Assignment3_IS413.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Notes")
-                        .HasMaxLength(25)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(25);
 
                     b.Property<string>("Title")
                         .IsRequired()

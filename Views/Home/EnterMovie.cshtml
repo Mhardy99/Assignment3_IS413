@@ -6,59 +6,60 @@
 }
 
 @model Assignment3_IS413.Models.MovieResponse
+    <div class="row justify-content-center">
+        <form asp-action="EnterMovie" method="post" >
+            <div>
+                <label asp-for="Category">Category</label>
+                <input asp-for="Category" />
+            </div>
 
-<form asp-action="EnterMovie" method="post">
-    <div>
-        <label asp-for="Category">Category</label>
-        <input asp-for="Category"/>
+            <div>
+                <label asp-for="Title">Title</label>
+                <input asp-for="Title" />
+            </div>
+
+            <div>
+                <label asp-for="YearReleased">Year</label>
+                <input asp-for="YearReleased" />
+            </div>
+
+            <div>
+                <label asp-for="DirectorName">Director</label>
+                <input asp-for="DirectorName" />
+            </div>
+
+            <div>
+                <label asp-for="MovieRating">Rating</label>
+                <select asp-for="MovieRating">
+                    <option value="G">G</option>
+                    <option value="PG">PG</option>
+                    <option value="PG-13">PG-13</option>
+                    <option value="R">R</option>
+                </select>
+            </div>
+
+            <div>
+                <label asp-for="IsEdited">Has this movie been edited?</label>
+                <select asp-for="IsEdited">
+                    <option value="">Select Yes or No</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+
+            <div>
+                <label asp-for="IsLentTo">Lent To</label>
+                <input asp-for="IsLentTo" />
+            </div>
+
+            <div>
+                <label asp-for="Notes">Notes</label>
+                <input asp-for="Notes" />
+            </div>
+
+            <div asp-validation-summary="All"></div>
+
+            <button type="submit">Submit your Movie Information</button>
+
+        </form>
     </div>
-
-    <div>
-        <label asp-for="Title">Title</label>
-        <input asp-for="Title"/>
-    </div>
-
-    <div>
-        <label asp-for="YearReleased">Year</label>
-        <input asp-for="YearReleased"/>
-    </div>
-
-    <div>
-        <label asp-for="DirectorName">Director</label>
-        <input asp-for="DirectorName"/>
-    </div>
-
-    <div>
-        <label asp-for="MovieRating">Rating</label>
-        <select asp-for="MovieRating">
-            <option value="G">G</option>
-            <option value="PG">PG</option>
-            <option value="PG-13">PG-13</option>
-            <option value="R">R</option>
-        </select>
-    </div>
-
-    <div>
-        <label asp-for="IsEdited">Has this movie been edited?</label>
-        <select asp-for="IsEdited">
-            <option value="">Select Yes or No</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-        </select>
-    </div>
-
-    <div>
-        <label asp-for="IsLentTo">Lent To</label>
-        <input asp-for="IsLentTo"/>
-    </div>
-
-    <div>
-        <label asp-for="Notes">Notes</label>
-        <input asp-for="Notes"/>
-    </div>
-
-    <div asp-validation-summary="All"></div>
-
-    <button type="submit">Submit your Movie Information</button>
-
-</form>

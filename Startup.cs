@@ -58,7 +58,7 @@ namespace Assignment3_IS413
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=MovieResponses}/{action=Index}/{id?}");
             });
 
             SeedData.EnsurePopulated(app);

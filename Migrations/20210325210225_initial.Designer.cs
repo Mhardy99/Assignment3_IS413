@@ -8,14 +8,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment3_IS413.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20210320163610_Initial")]
-    partial class Initial
+    [Migration("20210325210225_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.4");
+                .HasAnnotation("ProductVersion", "3.1.13");
 
             modelBuilder.Entity("Assignment3_IS413.Models.MovieResponse", b =>
                 {
@@ -42,8 +42,8 @@ namespace Assignment3_IS413.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Notes")
-                        .HasMaxLength(25)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(25);
 
                     b.Property<string>("Title")
                         .IsRequired()

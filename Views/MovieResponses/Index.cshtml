@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Assignment3_IS413.Models.MovieResponse>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Giving details about the movie -->
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearReleased)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DirectorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsEdited)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsLentTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearReleased)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DirectorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsEdited)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsLentTo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MovieID">Edit</a> |
+                    <a asp-action="LogDetails" asp-route-id="@item.MovieID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MovieID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

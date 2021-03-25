@@ -11,11 +11,11 @@
 <body>
     <header>
         <nav class="navbar navbar-light bg-light">
-                    <a asp-action="MyPodcasts">My Podcasts</a>
-                    <a asp-action="MovieList">My List of Movies</a>
-                    <a asp-action="EnterMovie">Enter a Movie</a>
-                    <a asp-action="Index">Home</a>
-                    
+            <a asp-action="MyPodcasts">My Podcasts</a>
+            <a asp-action="Index">My List of Movies</a>
+            <a asp-action="Create">Enter a Movie</a>
+            <a asp-action="Index">Home</a>
+
         </nav>
     </header>
     <h1 class="text-center">@ViewBag.title</h1>
@@ -24,6 +24,7 @@
 
     <br />
     <footer class="text-center">Miller Hardy 2020</footer>
+    @RenderSection("scripts", false)
 
 </body>
 

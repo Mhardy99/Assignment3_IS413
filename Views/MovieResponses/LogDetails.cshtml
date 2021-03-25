@@ -1,0 +1,66 @@
+﻿@model Assignment3_IS413.Models.MovieResponse
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- giving movie details -->
+<div>
+    <h4>MovieResponse</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.YearReleased)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YearReleased)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DirectorName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DirectorName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MovieRating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MovieRating)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsEdited)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsEdited)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsLentTo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsLentTo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MovieID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
