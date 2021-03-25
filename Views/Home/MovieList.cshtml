@@ -29,8 +29,9 @@
                 <td>@x.IsEdited</td>
                 <td>@x.IsLentTo</td>
                 <td>@x.Notes</td>
-                <form method="post" asp-action="EditMovieInfo"> <input hidden value="@x.MovieID" name="EditIt" /> <td><button>Edit</button></td></form>
-                <form method="post" asp-action="Remove"> <input hidden value="@x.MovieID" name="RemoveIt" /> <td><button>Delete</button></td></form>
+        
+                <form asp-action="EditMovieInfo" method="post"> <input hidden value="@x.MovieID" name="EditIt" /> <td><button>Edit</button></td></form>
+                <form asp-action="Remove" method="post"> <input hidden value="@x.MovieID" name="RemoveIt" /> <td><button>Delete</button></td></form>
             </tr>
                 }
             }

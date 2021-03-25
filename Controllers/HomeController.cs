@@ -66,13 +66,20 @@ namespace Assignment3_IS413.Controllers
 
             return View();
         }
+        [HttpGet]
+        public IActionResult EditMovieInfo(int MovieID)
+        {
+            return View();
+        }
         [HttpPost]
-        public IActionResult EditMovieInfo(int EditIt)
+        public IActionResult EditMovieInfo(int EditIt, MovieResponse movie)
         {
             if (ModelState.IsValid)
             {
                 MovieResponse movietoedit = context.movieResponses.FirstOrDefault(x => x.MovieID == EditIt);
-                context.movieResponses.Add(movietoedit);
+                //context.movieResponses.Add(movietoedit);
+                movietoedit.Category = movie.Category;
+                movietoedit.Title = movie.Title;
                 context.SaveChanges();
                 Response.Redirect("MovieList"); ; // , movie
             }
